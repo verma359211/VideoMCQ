@@ -342,9 +342,7 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
 
 async function connectToDatabase() {
   try {
-    await mongoose.connect(
-      "mongodb+srv://vermachandan2912003:zpsz6jCpvjcjadU0@ecommerce.x09eh.mongodb.net/videomcq?retryWrites=true&w=majority",
-    )
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ Connected to MongoDB")
   } catch (error) {
     console.error("❌ MongoDB connection error:", error)
